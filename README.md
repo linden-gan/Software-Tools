@@ -27,6 +27,7 @@ A notebook about software tools
 - Ctrl C: give up current command
 
 ### More
+- echo "string": print "string" to standard out
 - wget [https://]: download via http request
 - unzip zip_file.zip
 - cat [file]: print content of file to console
@@ -50,6 +51,11 @@ A notebook about software tools
 - find [dir]: print the tree structure of dir
   - find -name "*.java": find all files ending with .java 
     recursively in current directory
+- cut -flag: select text
+  - echo "abcd" | cut -c4 : select and print the 4th char, d
+  - echo "a,b,c,d" | cut -d, -f1 
+    - -d, : delimit by ,
+    - -f1 : select the first field after delimit, which is a
 - javac Main.java: compile Main.java to Main.class
 - java Main: run Main.class
 - java Main.java: compile and run Main.java
@@ -86,8 +92,10 @@ A notebook about software tools
 - command \< stream
   - java Evil.java \< pswd.txt: make pswd.txt as the input of the program
 - java Bug.java 2\> log.txt: direct the standard error output to log.txt
-- java Bug.java 2\>&1 log.txt: direct the standard error and standard
-output to log.txt
+- java Bug.java 2\>&1 mix.txt === java Bug.java \> mix.txt 2\>&1 : 
+  direct the standard error and standard output to mix.txt
+- java Bug.java > output.txt 2> err.txt: direct the standard output to 
+  output.txt and standard error to err.txt
 - Ctrl D: shut down current stream
 
 ## Pipe
@@ -102,10 +110,23 @@ output to log.txt
   receives previous commands' output as input
 - sort berries.txt | uniq | wc -l (count # of unique berries names) Note: sort
 is important since uniq only eliminate adjacent, duplicated lines
+- xargs  
 > ls *.java | javac
 - We want to compile all java files, but this will FAIL since javac doesn't
 accept stream. It accepts arg instead
 > ls *.java | xargs javac
 - xargs convert standard input/output to arg, so this will work
 > find -name "*.java" | xargs javac
+- tee [file]: print standard output to both [file] and console
+  - usage: java Main.java | tee output.txt : Main.java's standard output
+  will appear in both console and output.txt
+  - How to include standard error?
+  - java Main.java 2\>&1 | tee mix.txt
+  
+## Git
+- git clone [git@...]: clone repo
+- git status: examine current status (updated or not)
+- git stage readme.md : prepare change?
+- git commit -m "commit message"
+- git push
 - 
