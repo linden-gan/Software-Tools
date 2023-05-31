@@ -123,10 +123,3 @@ accept stream. It accepts arg instead
   - How to include standard error?
   - java Main.java 2\>&1 | tee mix.txt
   
-## Git
-- git clone [git@...]: clone repo
-- git status: examine current status (updated or not)
-- git stage readme.md : prepare change?
-- git commit -m "commit message"
-- git push
-- 
