@@ -1,7 +1,0 @@
-## Git
-- git clone [git@...]: clone repo
-- git status: examine current status (updated or not)
-- git stage readme.md : prepare change?
-- git commit -m "commit message"
-- git push
-- 
