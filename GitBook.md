@@ -10,5 +10,10 @@
   - `git remote` to list all remote repo
 - Branch:
   - local non-tracking branch: local "dummy" branch, can't push or pull from remote branch
-  - local tracking branch: track/connect with a remote branch, so can push and pull
-  - remote tracking branch: still on local machine, a reference to remote ranch
+    - `git branch <name>` to create
+    - `git push origin <name>` to push local branch to remote
+  - local tracking branch: track/connect with a remote tracking branch, so can push and pull without specifying which remote branch
+    - `git branch --track <remote_branch_name>` to create
+  - remote tracking branch: still on local machine, a reference/cache to remote branch
+  - remote branch: branch on remote
+    - `git remote show origin` to show remote config and branches
